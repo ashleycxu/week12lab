@@ -1,10 +1,11 @@
 library(tidyverse)
 
 #' Estimate arrival rates
-#' @description Estimates the arrival rates (average number of trips) for all
-#' pairs of stations and the hour of the day
-#' @param data, input data frame
-#' @return new data frame with arrival rates for each station pair and hour
+#' @description Estimates the arrival rates for all pairs of stations and the 
+#' hour of the day. Unbiased estimator mu_hat is average number of trips
+#' divided by average availability.
+#' @param data Input data frame of bikeshare usage data
+#' @return Data frame with arrival rates for each station pair and hour.
 estimate_arrival_rates <- function(data) {
   data <- data %>%
     mutate(
@@ -65,14 +66,5 @@ estimate_arrival_rates <- function(data) {
   
   return(mu_hat)
 }
-
-# Load the sample dataset
-bike_data <- read.csv("sample_bike.csv")
-
-# Estimate arrival rates
-arrival_rates <- estimate_arrival_rates(bike_data)
-
-# View the results
-print(arrival_rates, n = 10)
 
 
