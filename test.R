@@ -29,6 +29,6 @@ random <- random_placement(test_estimation, 10)
 test_simulation <- simulate_day(test_estimation, 10, random)
 
 # Test optimization of bike placement
-test_optimization <- add_bikes(test_estimation, 10, 5)
+test_placement <- add_bikes(test_estimation, 10, 5)$placement
 
 
